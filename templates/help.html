@@ -1,0 +1,31 @@
+<html>
+
+    <head>
+    
+                <title>Colorizo</title>
+                
+    </head>
+  
+  
+    <body style=background-image:url({{url_for('static' , filename = 'unnamed.jpg')}})>
+                <div style=width:60%;background:#cccccc;left:0;right:0;border-radius:15px;margin-right:auto;margin-left:auto;padding:20px;>
+                <center><img src = {{url_for('static' , filename = 'sabertechnologies.png')}} width=250px height=250px></center><br>
+                    <div style=background:#fff;border-radius:15px;padding:10px;>
+                        <center><h1 style=color:#000;border-radius:5px; >COLORIZO</h1>
+                        <h3>Know More</h3>
+                             This AI App Aims To Make The World A Brighter Place<br>
+                             This App Colorizes The Given B/W Image<br><br><br>
+                             <center><b>EXAMPLE INPUT IMAGE</b></center><br>
+                             <center><img src = {{url_for('static' , filename = 'ex2.jpeg')}} width=200px height=200px></center><br><br>
+                             <center><b>OUTPUT</b></center><br>
+                             <center><img src = {{url_for('static' , filename = 'ex1.png')}} width=200px height=200px></center>
+                             <br><b>Please Do not Expect An 100 % Accurate Image . The Results May Not Be Extremely Satisfying Sometimes</b>
+                             
+                             </center>
+                      
+                  </div>
+       
+                </div>
+    </body>
+  
+</html>

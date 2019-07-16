@@ -1,0 +1,44 @@
+<html>
+  
+  <head><title>Colorizo</title></head>
+
+  <body style=overflow:auto;background-image:url({{url_for('static' , filename = 'unnamed.jpg')}})>
+                <div style=width:60%;background:#cccccc;left:0;right:0;border-radius:15px;margin-right:auto;margin-left:auto;padding:20px;>
+                <center><img src = {{url_for('static' , filename = 'sabertechnologies.png')}} width=250px height=250px></center><br>
+                    <div style=background:#fff;border-radius:15px;padding:10px;>
+                        <center><h1 style=color:#000;border-radius:5px; >COLORIZO</h1></center><br>
+      <center><h2>Select A Black And White Image To Colorise It</h2><br>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <form id="uploader" action = "http://colorizo.heroku.com/uploader" method = "POST" accept="image/jpg , image/jpeg , image/png" enctype = "multipart/form-data">
+        <input type = "file" name = "file" id = "imgInp" multiple/><br><br>
+        <img id="blah" src="#" width=500px height=500px /><br><br>
+        <input type = "submit">
+      </form></center>
+    </center>
+    </div>              
+                  <br>
+      <center><a href={{url_for('hel')}}>KNOW MORE</a></center>
+    </div>
+     <script>
+    
+        function readURL(input) {
+
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+              $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        $("#imgInp").change(function() {
+          readURL(this);
+        });
+
+    </script>
+  </body>
+  
+</html>
