@@ -1,3 +1,5 @@
-# Pneumonia Classifier
+# COLORIZO
 
-You Can Try Out the App At https://pneumonia-classifier.herokuapp.com/
+An AI Image Colorization App
+
+You Can Try Out the App At https://colorizo.herokuapp.com/
