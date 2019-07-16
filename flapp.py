@@ -46,7 +46,7 @@ def upload_file():
       i = str(randint(0,100000000))
 
       im = Image.fromarray(np.uint8(imgs * 255.0), 'RGB')
-      string = "/static/image" + i +".png"
+      string = "image" + i +".png"
       im.save(string)
       string1 = "image" + i +".png"
       print(string1)
