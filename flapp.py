@@ -22,7 +22,7 @@ def upload_file():
        
       input_dim = 100
 
-      print(os.listdir("\"))
+      print(os.listdir("/"))
     
       f = request.files['file']
       uploaded_files = request.files.getlist("file")
@@ -49,7 +49,7 @@ def upload_file():
       i = str(randint(0,100000000))
 
       im = Image.fromarray(np.uint8(imgs * 255.0), 'RGB')
-      string = "image" + i +".png"
+      string = "/static/image" + i +".png"
       im.save(string)
       string1 = "image" + i +".png"
       print(string1)
