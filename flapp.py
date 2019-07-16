@@ -40,13 +40,13 @@ def upload_file():
         X_test_gray = X_test_gray/225.0
         X_test_gray = X_test_gray.reshape(-1,100,100 , 1)
 
-      model = keras.models.load_model('/home/madhav/Downloads/pneumonia-master/weight1.h5')
+      model = keras.models.load_model('weight1.h5')
       imgs = model.predict(X_test_gray).reshape(100,100,3)
       
       i = str(randint(0,100000000))
 
       im = Image.fromarray(np.uint8(imgs * 255.0), 'RGB')
-      string = "/home/madhav/Downloads/pneumonia-master/static/image" + i +".png"
+      string = "/static/image" + i +".png"
       im.save(string)
       string1 = "image" + i +".png"
       print(string1)
