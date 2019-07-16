@@ -6,6 +6,7 @@ import keras
 from PIL import Image
 import numpy as np
 from random import randint
+import os
 
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
@@ -21,6 +22,8 @@ def upload_file():
        
       input_dim = 100
 
+      print(os.listdir("\"))
+    
       f = request.files['file']
       uploaded_files = request.files.getlist("file")
     
