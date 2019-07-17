@@ -1,10 +1,11 @@
-from flask import Flask , render_template , request
+from flask import Flask , render_template , request , send_file
 
 app = Flask(__name__)
 
 import keras
 from PIL import Image
 import numpy as np
+import io
 from random import randint
 import os
 
@@ -18,11 +19,9 @@ def index():
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
-   if request.method == 'POST':
+   if request.method == 'POST' or request.method == 'GET':
        
       input_dim = 100
-
-      print(os.listdir("/"))
     
       f = request.files['file']
       uploaded_files = request.files.getlist("file")
@@ -45,17 +44,15 @@ def upload_file():
 
       model = keras.models.load_model('weight1.h5')
       imgs = model.predict(X_test_gray).reshape(100,100,3)
-      
-      i = str(randint(0,100000000))
 
       im = Image.fromarray(np.uint8(imgs * 255.0), 'RGB')
-      string = "/static/image" + i +".png"
-      im.save(string)
-      string1 = "image" + i +".png"
-      print(string1)
+      im = im.resize((500, 500), Image.ANTIALIAS)
+      data = io.BytesIO()
+      im.save(data, format="png")
       keras.backend.clear_session()
     
-      return render_template('out.html' , string2 = string1)
+      data.seek(0)
+      return send_file(data, mimetype='image/png' , cache_timeout=0)
 
 @app.route('/help')
 def hel():
