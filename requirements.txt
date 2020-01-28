@@ -3,4 +3,4 @@ gunicorn==19.9.0
 keras
 Pillow
 numpy
-tensorflow==1.12.0
+tensorflow==1.15.2
